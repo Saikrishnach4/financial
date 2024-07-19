@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema({
   },
   savings: {
     type: Number,
-    default: 0, // Initial savings is set to 0
+    default: 0, 
   },
 });
 

@@ -17,7 +17,7 @@ router.post('/', authenticateJWT, async (req, res) => {
   const { date, category, amount, type, description } = req.body;
 
   try {
-    // Create the transaction
+  
     const transaction = await Transaction.create({
       userId: req.user.userId,
       date,
@@ -27,7 +27,6 @@ router.post('/', authenticateJWT, async (req, res) => {
       type,
     });
 
-    // Update user's savings based on the transaction type
     const user = await User.findById(req.user.userId);
 
     if (!user) {
@@ -40,7 +39,7 @@ router.post('/', authenticateJWT, async (req, res) => {
       user.savings -= amount;
     }
 
-    // Save the updated user
+  
     await user.save();
 
     res.status(201).json(transaction);
@@ -64,7 +63,7 @@ router.put('/:id', authenticateJWT, async (req, res) => {
       return res.status(404).json({ message: 'Transaction not found' });
     }
 
-    // Update user's savings based on the changes in the transaction type and amount
+   
     const user = await User.findById(req.user.userId);
 
     if (!user) {
@@ -77,7 +76,7 @@ router.put('/:id', authenticateJWT, async (req, res) => {
       user.savings -= amount;
     }
 
-    // Save the updated user
+    
     await user.save();
 
     res.json(transaction);
@@ -98,7 +97,7 @@ router.delete('/:id', authenticateJWT, async (req, res) => {
       return res.status(404).json({ message: 'Transaction not found' });
     }
 
-    // Update user's savings based on the deleted transaction type and amount
+    
     const user = await User.findById(req.user.userId);
 
     if (!user) {
@@ -111,7 +110,7 @@ router.delete('/:id', authenticateJWT, async (req, res) => {
       user.savings += deletedTransaction.amount;
     }
 
-    // Save the updated user
+   
     await user.save();
 
     res.json(deletedTransaction);
@@ -125,17 +124,17 @@ router.get('/summary/:year/:month', authenticateJWT, async (req, res) => {
     const year = parseInt(req.params.year);
     const month = parseInt(req.params.month);
 
-    // Get transactions for the specified month and year
+ 
     const transactions = await Transaction.find({
       userId: req.user.userId,
       date: { $gte: new Date(year, month - 1, 1), $lt: new Date(year, month, 1) },
     });
 
-    // Separate income and expenses
+   
     const incomeTransactions = transactions.filter(transaction => transaction.type === 'income');
     const expenseTransactions = transactions.filter(transaction => transaction.type === 'expense');
 
-    // Calculate total income and expenses
+   
     const totalIncome = incomeTransactions.reduce((sum, transaction) => sum + transaction.amount, 0);
     const totalExpenses = expenseTransactions.reduce((sum, transaction) => sum + transaction.amount, 0);
 
@@ -181,29 +180,29 @@ router.get('/summary/:year/:month/:day', authenticateJWT, async (req, res) => {
     const nextDay = new Date(date);
     nextDay.setUTCDate(date.getUTCDate() + 1);
 
-    // Fetch transactions for the specified day
+    
     const transactions = await Transaction.find({
       userId: req.user.userId,
       date: { $gte: date, $lt: nextDay },
       type: 'expense'
     });
 
-    // Calculate total spending
+    
     const totalSpending = transactions.reduce((sum, transaction) => sum + transaction.amount, 0);
 
-    // Calculate spending by category
+    
     const spendingByCategory = transactions.reduce((acc, transaction) => {
       acc[transaction.category] = (acc[transaction.category] || 0) + transaction.amount;
       return acc;
     }, {});
 
-    // Format spending by category to match the required structure
+   
     const formattedSpendingByCategory = Object.keys(spendingByCategory).map(category => ({
       categoryName: category,
       amount: spendingByCategory[category],
     }));
 
-    // Send the response
+    
     res.json({
       totalSpending,
       spendingByCategory: formattedSpendingByCategory

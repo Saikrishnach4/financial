@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const cors = require('cors'); // Import the cors middleware
+const cors = require('cors'); 
 const authRoutes = require('./routes/authroutes');
 const transactionRoutes = require('./routes/transactions');
 
@@ -21,7 +21,7 @@ mongoose.connect(mongoURL, {
 
 app.use(bodyParser.json());
 
-// Use cors middleware
+
 app.use(cors());
 
 app.use('/auth', authRoutes);
