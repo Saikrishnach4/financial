@@ -1,0 +1,25 @@
+.summaryViewContainer {
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .summaryData {
+    margin-top: 20px;
+  }
+  
+  .categoryData {
+    margin-top: 20px;
+  }
+  
+  .categoryData ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .categoryData li {
+    margin-bottom: 10px;
+  }
+  

@@ -1,0 +1,107 @@
+.main {
+    background: #FFF;
+    width: 100vw;
+    height: 1000px
+}
+
+.h2 {
+    display: flex;
+    justify-content: center;
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #000;
+    font-family: Itim;
+    font-size: 96px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    background: linear-gradient(180deg, #100681 0%, #156767 86.98%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.input {
+    width: 20vw;
+    height: 40px;
+    text-align: center;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 2px solid #000;
+    background: #FAFAFA;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* gap: 10px; */
+}
+
+.button {
+    width: 133.131px;
+    height: 50px;
+    color: #FFF;
+font-family: Roboto;
+/* font-size: 36px; */
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 2px solid #000;
+    background: #04113D;
+}
+.ul{
+    display: flex;
+    list-style: none;
+    /* flex-direction: column; */
+    gap: 50px;
+    flex-wrap: wrap;
+    margin: 50px 50px 10px 170px;
+}
+.cards {
+    width: 20vw;
+    border: 3px solid #ddd; /* Border color */
+    border-radius: 8px; /* Border radius for rounded corners */
+    padding: 12px; /* Padding for content inside the card */
+    margin-bottom: 12px; /* Margin between cards */
+    background-color: lightgray;
+    transition: box-shadow 0.3s ease; /* Transition effect for box-shadow */
+}
+
+.cards:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Box shadow on hover */
+}
+.task{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.task {
+    border: 2px solid #ddd; /* Border for the card */
+    margin: 10px; /* Margin around the card */
+    padding: 10px; /* Padding inside the card */
+    background-color: #f9f9f9; /* Background color for the card */
+    transition: box-shadow 0.3s; /* Add a transition for a smooth effect */
+  }
+  
+  .task:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow on hover */
+  }
+  
+  .info-label {
+    font-weight: bold;
+    margin-bottom: 5px; /* Add some space between label and content */
+  }
+  
+  /* Apply word-wrap and margin to all paragraphs inside .task */
+  .task p {
+    word-wrap: break-word;
+    margin: 10px 0;
+  }
+  .card{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }

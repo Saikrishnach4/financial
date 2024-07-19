@@ -1,0 +1,74 @@
+/* dashboard.module.css */
+
+.dashboard {
+    font-family: 'Arial', sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    margin: 0;
+    color: #333;
+  }
+  
+  button {
+    background-color: #4285f4;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #356ac3;
+  }
+  
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .savingsSection,
+  .summarySection,
+  .transactionSection {
+    flex: 1;
+  }
+  
+  h3 {
+    color: #333;
+  }
+  
+  p {
+    margin: 0;
+    color: #666;
+  }
+  
+  .savingsSection p {
+    font-size: 24px;
+    font-weight: bold;
+    color: #4caf50;
+  }
+  
+  .summarySection p {
+    font-size: 18px;
+  }
+  
+  .transactionSection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Add more styles as needed */
+  
