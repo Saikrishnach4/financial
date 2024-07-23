@@ -1,4 +1,4 @@
-# roziroti
+
 
 # Install server-side dependencies
 cd server
@@ -10,6 +10,10 @@ npm install
 
 # Register first for new user
 route /register
+
+#login route
+route /login
+
 ## Database Configuration
 
 This project uses MongoDB as its database. Follow the steps below to set up the database:
